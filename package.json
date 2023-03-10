@@ -23,7 +23,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "test-storybook": "test-storybook",
+    "chromatic": "chromatic"
   },
   "eslintConfig": {
     "extends": [
@@ -56,12 +58,16 @@
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.3",
     "@storybook/addon-essentials": "^6.5.3",
+    "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.3",
     "@storybook/builder-webpack5": "^6.5.3",
+    "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.3",
     "@storybook/node-logger": "^6.5.3",
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.5.3",
+    "@storybook/test-runner": "^0.9.4",
+    "@storybook/testing-library": "^0.0.13",
     "chromatic": "^6.17.1",
     "cypress": "^12.9.0",
     "msw": "^1.1.0",
