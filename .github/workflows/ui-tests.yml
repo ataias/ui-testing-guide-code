@@ -84,3 +84,5 @@ jobs:
             ${{ runner.os }}-yarn-v1
       - name: Cypress run
         uses: cypress-io/github-action@v5
+        with:
+          start: npm start
