@@ -72,6 +72,7 @@
     "axe-playwright": "^1.2.3",
     "chromatic": "^6.17.1",
     "cypress": "^12.9.0",
+    "eslint-plugin-cypress": "^2.13.2",
     "msw": "^1.1.0",
     "msw-storybook-addon": "^1.8.0"
   },
