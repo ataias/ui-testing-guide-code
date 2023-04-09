@@ -49,7 +49,7 @@ PinTask.play = async ({ canvasElement }) => {
   await userEvent.click(pinButton);
 
   const unpinButton = within(itemToPin).getByRole("button", { name: "unpin" });
-  await expect(unpinButton).toBeInTheDocument();
+  expect(unpinButton).toBeInTheDocument();
 };
 
 export const ArchiveTask = Template.bind({});
@@ -62,7 +62,7 @@ ArchiveTask.play = async ({ canvasElement }) => {
   const archiveCheckbox = await findByRole(itemToArchive, "checkbox");
   await userEvent.click(archiveCheckbox);
 
-  await expect(archiveCheckbox.checked).toBe(true);
+  expect(archiveCheckbox.checked).toBe(true);
 };
 
 export const EditTask = Template.bind({});
@@ -75,7 +75,22 @@ EditTask.play = async ({ canvasElement }) => {
   const taskInput = await findByRole(itemToEdit, "textbox");
 
   await userEvent.type(taskInput, " and disabled state");
-  await expect(taskInput.value).toBe(
-    "Fix bug in input error state and disabled state"
+  expect(taskInput.value).toBe(
+    "Fix bug in input error state and disabled state",
   );
+};
+
+export const DeleteTask = Template.bind({});
+DeleteTask.parameters = { ...Default.parameters };
+DeleteTask.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const getTask = (name) => canvas.findByRole("listitem", { name });
+
+  const itemToDelete = await getTask("Build a date picker");
+  const deleteButton = await findByRole(itemToDelete, "button", {
+    name: "delete",
+  });
+  await userEvent.click(deleteButton);
+
+  expect(canvas.getAllByRole("listitem").length).toBe(5);
 };
